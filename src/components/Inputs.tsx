@@ -35,7 +35,6 @@ export default function Inputs() {
     setShowResult(true);
   };
 
-  // როცა result-ის div-ს დააჭერ, დაბრუნდეს textarea
   const handleResultClick = () => {
     setShowResult(false);
   };
