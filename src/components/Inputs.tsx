@@ -48,7 +48,7 @@ export default function Inputs() {
         <div className="w-full flex flex-col gap-5 items-center md:flex-row">
           {showResult ? (
             <div
-              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px] cursor-pointer"
+              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px] xl:min-h-[432px] cursor-pointer"
               onClick={handleResultClick}
               title="დააჭირე რომ შეცვალო">
               {text1}
@@ -56,7 +56,7 @@ export default function Inputs() {
           ) : (
             <textarea
               placeholder="დაიწყე წერა..."
-              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none h-[190px] w-full md:h-[330px]"
+              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none h-[190px] w-full md:h-[330px] xl:h-[432px]"
               value={text1}
               onChange={(e) => setText1(e.target.value)}
             />
@@ -68,7 +68,7 @@ export default function Inputs() {
           />
           {showResult ? (
             <div
-              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px] cursor-pointer"
+              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px] xl:min-h-[432px] cursor-pointer"
               onClick={handleResultClick}
               title="დააჭირე რომ შეცვალო">
               {result}
@@ -76,7 +76,7 @@ export default function Inputs() {
           ) : (
             <textarea
               placeholder="დაიწყე წერა..."
-              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none h-[190px] w-full md:h-[330px]"
+              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none h-[190px] w-full md:h-[330px] xl:h-[432px]"
               value={text2}
               onChange={(e) => setText2(e.target.value)}
             />
