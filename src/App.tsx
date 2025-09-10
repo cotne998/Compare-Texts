@@ -22,14 +22,20 @@ function App() {
     <>
       <Header />
       <div className="flex min-h-screen">
-        <Sidebar />
-        <main className="flex-1">
-          <MainContext.Provider value={{ text1, setText1, text2, setText2 }}>
+        <MainContext.Provider
+          value={{
+            text1,
+            setText1,
+            text2,
+            setText2,
+          }}>
+          <Sidebar />
+          <main className="flex-1">
             <Compare />
             <UpperSection />
             <Inputs />
-          </MainContext.Provider>
-        </main>
+          </main>
+        </MainContext.Provider>
       </div>
     </>
   );
