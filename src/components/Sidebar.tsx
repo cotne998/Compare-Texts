@@ -60,17 +60,17 @@ export default function Sidebar() {
                   <li
                     key={i}
                     onClick={() => setCurrentIndex(i)}
-                    className={`navs flex items-center gap-3 text-${
-                      isActive ? "[#132450]" : "white"
-                    } text-[14px] bg-${
-                      isActive ? "white" : "transparent"
+                    className={`navs flex items-center gap-3 ${
+                      isActive ? "text-[#132450]" : "text-white"
+                    } text-[14px] ${
+                      isActive ? "bg-white" : "bg-transparent"
                     } py-[24px] pl-[11.2px] rounded-[100px] ${
                       !isActive ? "hover:bg-[#ffffff26]" : ""
                     } rounded-tr-[0px] rounded-br-[0px] cursor-pointer transition-[0.2s] font-semibold`}>
                     <img
                       src={item.path}
-                      className={`brightness-${
-                        isActive ? "0" : "100"
+                      className={`${
+                        isActive ? "brightness-0" : "brightness-100"
                       } transition-[0.2s]`}
                       alt={`${item.name} route icon`}
                     />
