@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, type JSX } from "react";
 import { diffWords } from "diff";
 import { MainContext } from "../App";
 
