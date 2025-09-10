@@ -5,10 +5,12 @@ import { MainContext } from "../App";
 export default function Inputs() {
   const { text1, setText1, text2, setText2 } = useContext(MainContext);
   const [result, setResult] = useState<JSX.Element[]>([]);
+  const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
     if (!text1 && !text2) {
       setResult([]);
+      setShowResult(false);
     }
   }, [text1, text2]);
 
@@ -30,6 +32,12 @@ export default function Inputs() {
     });
 
     setResult(formatted);
+    setShowResult(true);
+  };
+
+  // როცა result-ის div-ს დააჭერ, დაბრუნდეს textarea
+  const handleResultClick = () => {
+    setShowResult(false);
   };
 
   return (
@@ -38,9 +46,12 @@ export default function Inputs() {
         onSubmit={handleCompare}
         className="flex flex-col gap-[16px] px-[16px] py-[24px] items-center w-full md:gap-[32px]">
         <div className="w-full flex flex-col gap-5 items-center md:flex-row">
-          {result.length > 0 ? (
-            <div className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px]">
-              {result}
+          {showResult ? (
+            <div
+              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px] cursor-pointer"
+              onClick={handleResultClick}
+              title="დააჭირე რომ შეცვალო">
+              {text1}
             </div>
           ) : (
             <textarea
@@ -55,8 +66,11 @@ export default function Inputs() {
             className="w-[32px] md:rotate-90"
             alt="arrow icon"
           />
-          {result.length > 0 ? (
-            <div className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px]">
+          {showResult ? (
+            <div
+              className="bg-[#F0F7FF] rounded-[8px] p-[12px] resize-none min-h-[190px] w-full md:min-h-[330px] cursor-pointer"
+              onClick={handleResultClick}
+              title="დააჭირე რომ შეცვალო">
               {result}
             </div>
           ) : (
