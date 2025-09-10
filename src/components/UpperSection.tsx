@@ -3,7 +3,7 @@ import { MainContext } from "../App";
 
 export default function UpperSection() {
   const [language, setLanguage] = useState("ka");
-  const { setText1, setText2 } = useContext(MainContext);
+  const { setText1, setText2, text1, text2 } = useContext(MainContext);
 
   const handleClick = () => {
     setText1("");
@@ -32,7 +32,11 @@ export default function UpperSection() {
       </div>
       <button
         onClick={handleClick}
-        className="text-[14px] text-white bg-[#383A4899] flex items-center justify-center py-[9px] gap-[4px] rounded-[6px] cursor-pointer md:px-[12px]">
+        className={`text-[14px] text-white ${
+          text1 || text2 ? "bg-[#4571E4]" : "bg-[#383A4899]"
+        } flex items-center justify-center py-[9px] gap-[4px] rounded-[6px] cursor-pointer md:px-[12px] ${
+          text1 || text2 ? "hover:bg-[#4572e4b2]" : ""
+        } transition-[0.2s]`}>
         {" "}
         <img
           src="/assets/icon-add.svg"

@@ -1,10 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { diffWords } from "diff";
 import { MainContext } from "../App";
 
 export default function Inputs() {
   const { text1, setText1, text2, setText2 } = useContext(MainContext);
   const [result, setResult] = useState<JSX.Element[]>([]);
+
+  useEffect(() => {
+    if (!text1 && !text2) {
+      setResult([]);
+    }
+  }, [text1, text2]);
 
   const handleCompare = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,8 +19,8 @@ export default function Inputs() {
 
     const formatted = diff.map((part, i) => {
       let style = "";
-      if (part.added) style = "text-green-600";
-      else if (part.removed) style = "text-red-600";
+      if (part.added) style = "bg-[#3EBC5E] text-white";
+      else if (part.removed) style = "bg-[#B50022] text-white";
 
       return (
         <span key={i} className={style}>
@@ -66,19 +72,12 @@ export default function Inputs() {
           type="submit"
           className={`${
             text1 || text2 ? "bg-[#4571E4]" : "bg-[#383A4899]"
-          } text-white rounded-[6px] text-[14px] px-[37px] py-[10px] cursor-pointer transition-[0.2s]`}>
+          } text-white rounded-[6px] text-[14px] px-[37px] py-[10px] cursor-pointer ${
+            text1 || text2 ? "hover:bg-[#4572e4b2]" : ""
+          } transition-[0.2s]`}>
           შედარება
         </button>
       </form>
-
-      {/* შედეგი */}
-      <div className="mt-6 p-4 bg-white border rounded-lg w-full">
-        {result.length > 0 ? (
-          result
-        ) : (
-          <p className="text-gray-400">შედარების შედეგი აქ გამოჩნდება...</p>
-        )}
-      </div>
     </>
   );
 }

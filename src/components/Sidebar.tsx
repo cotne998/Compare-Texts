@@ -51,7 +51,7 @@ export default function Sidebar() {
           </div>
         </div>
         <nav>
-          <ul className="flex flex-col ">
+          <ul className="flex flex-col gap-2">
             {nav.map((item, i) => {
               const isActive = currentIndex === i;
 
@@ -63,7 +63,9 @@ export default function Sidebar() {
                     isActive ? "[#132450]" : "white"
                   } text-[14px] bg-${
                     isActive ? "white" : "transparent"
-                  } py-[24px] pl-[11.2px] rounded-[100px] rounded-tr-[0px] rounded-br-[0px] cursor-pointer transition-[0.2s] font-semibold`}>
+                  } py-[24px] pl-[11.2px] rounded-[100px] ${
+                    !isActive ? "hover:bg-[#ffffff26]" : ""
+                  } rounded-tr-[0px] rounded-br-[0px] cursor-pointer transition-[0.2s] font-semibold`}>
                   <img
                     src={item.path}
                     className={`brightness-${
